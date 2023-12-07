@@ -58,34 +58,18 @@ public class tresenraya {
     }
 
     public static boolean validatresenraya (int jugador){
-        //Valida la primera fila
-        if ((tablero[0][0] != 0) && (tablero[0][0] == tablero[0][1]) && (tablero[0][0] == tablero[0][2])){
-            tresenraya = true;
-        }
 
-        //Valida la segunda fila
-        if ((tablero[1][0] != 0) && (tablero[1][0] == tablero[1][1]) && (tablero[1][0] == tablero[1][2])){
-            tresenraya = true;
-        }
-
-        //Valida la tercera fila
-        if ((tablero[2][0] != 0) && (tablero[2][0] == tablero[2][1]) && (tablero[2][0] == tablero[2][2])){
-            tresenraya = true;
-        }
-
-        //Valida la primera columna
-        if ((tablero[0][0] != 0) && (tablero[0][0] == tablero[1][0]) && (tablero[0][0] == tablero[2][0])){
-            tresenraya = true;
-        }
-
-        //Valida la segunda columna
-        if ((tablero[0][1] != 0) && (tablero[0][1] == tablero[1][1]) && (tablero[0][1] == tablero[2][1])){
-            tresenraya = true;
-        }
-
-        //Valida la tercera columna
-        if ((tablero[0][2] != 0) && (tablero[0][2] == tablero[1][2]) && (tablero[0][2] == tablero[2][2])){
-            tresenraya = true;
+        for (int i=0;i<tablero[0].length;i++){
+            //Valida filas
+            if ((tablero[i][0] != 0) && (tablero[i][0] == tablero[i][1]) && (tablero[i][0] == tablero[i][2])){
+                tresenraya = true;
+                break;
+            }
+            //Valida columnas
+            if ((tablero[0][i] != 0) && (tablero[0][i] == tablero[1][i]) && (tablero[0][i] == tablero[2][i])){
+                tresenraya = true;
+                break;
+            }
         }
 
         //Valida la primera diagonal
@@ -113,6 +97,7 @@ public class tresenraya {
             //Reiniciamos las variables
             int cont = 0;
             int jugador = 1;
+            tresenraya = false;
             for (int i=0;i<tablero[0].length;i++){
                 for (int j=0;j<tablero[0].length;j++){
                     tablero[i][j] = 0;
